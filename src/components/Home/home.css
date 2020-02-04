@@ -1,0 +1,45 @@
+#Home {
+  height: 100%;
+  padding-top: 8rem;
+  padding-bottom: 4rem;
+}
+
+#Home .arrowRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
+}
+
+#Home h1 {
+  margin-bottom: 1.5rem;
+  color: var(--custommiddlecyan);
+}
+
+#Home p {
+  font-size: 1.25rem;
+}
+
+#Home img {
+  max-width: 78px;
+}
+
+@media screen and (max-width: 580px) {
+  #Home {
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+  }
+
+  #Home h1 {
+    margin-bottom: 1.5rem;
+    font-size: 1.75rem;
+  }
+
+  #Home p {
+    font-size: 1rem;
+  }
+
+  #Home img {
+    display: none;
+  }
+}

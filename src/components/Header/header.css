@@ -1,0 +1,54 @@
+@import '../../colors.css';
+
+#Navbar {
+  background-color: var(--customcyan);
+  justify-content: space-between;
+}
+
+#Navbar .navbar-brand {
+  color: var(--customlightcyan);
+}
+
+#Navbar .btn-outline-light {
+  color: var(--customlightcyan);
+  border-color: var(--customlightcyan);
+}
+
+#Navbar .btn-outline-light:hover,
+#Navbar .btn-outline-light:active {
+  color: var(--customgrey);
+  border-color: var(--customlightcyan);
+  background-color: var(--customlightcyan);
+}
+
+@media screen and (max-width: 575px) {
+  #Navbar {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1.5rem;
+  }
+
+  #Navbar .navbar-brand {
+    margin-bottom: 1rem;
+  }
+
+  #Navbar .navbar-brand,
+  #Navbar .form-inline {
+    width: 100%;
+  }
+
+  #Navbar .form-inline {
+    justify-content: center;
+  }
+
+  #Navbar .form-control {
+    width: auto;
+    margin-right: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 356px) {
+  #Navbar button {
+    margin-top: 0.5rem;
+  }
+}

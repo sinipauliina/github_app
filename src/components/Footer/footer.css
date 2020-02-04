@@ -1,0 +1,28 @@
+@import '../../colors.css';
+
+#Footer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  background-color: var(--customblack);
+}
+
+#Footer hr {
+  width: 100%;
+  display: block;
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: var(--customlightcyan);
+}
+
+#Footer p {
+  margin-top: 0.5rem;
+}
+
+#Footer a {
+  color: var(--customorange);
+}
+
+#Footer a:hover,
+#Footer a:active {
+}

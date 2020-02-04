@@ -1,0 +1,39 @@
+@import '../../colors.css';
+
+#RepoTable {
+  color: var(--customlightcyan);
+  background-color: var(--customblack);
+}
+
+#RepoTable tbody tr:hover {
+  background-color: rgba(17, 100, 102, 0.3);
+  cursor: pointer;
+}
+
+#RepoTable th,
+#RepoTable td {
+  padding: 0.75rem 1.25rem;
+  color: var(--customlightcyan);
+  border-color: var(--customgrey);
+}
+
+#RepoTable .fas {
+  font-weight: 400;
+  padding: 0 10px 0 0;
+  font-family: 'FontAwesome';
+}
+
+#RepoTable .link {
+  color: var(--customorange);
+}
+
+#RepoTable .link:hover,
+#RepoTable .link:active {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 767px) {
+  #RepoTable .hideSm {
+    display: none;
+  }
+}

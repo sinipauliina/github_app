@@ -1,0 +1,25 @@
+#User {
+  height: 100%;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  text-align: left;
+}
+
+#User h1 {
+  margin-bottom: 2.5rem;
+}
+
+#User .error {
+  font-size: 1.25rem;
+}
+
+@media screen and (max-width: 580px) {
+  #User {
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+  }
+
+  #User .error {
+    font-size: 1rem;
+  }
+}
