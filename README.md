@@ -2,16 +2,35 @@
 
 ## About this project
 
-This is a single-page app developed with React. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a single-page app developed with React. With this app you can check the commit histories of your favourite GitHub user's repos. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ### Live demo
 
+Coming soon!
+
 ### Features
 
-## Some libraries used in this project
+The app contains **three main views**.
+
+- Home (Home.js)
+- GitHub user's repos (User.js)
+- Latest commits of a repo (SingleRepo.js)
+
+On top-right of every view there is a **search box**. By typing a GitHub username into the field the user can search and enter the repo view.
+
+On the **repo view** there is a table containing all the user's repos. By clicking the name of a repo the user can enter the commits view.
+
+On the **commits view** there is a table containing ten latest commits of the repo.
+
+The app is translated into **two languages**: Finnish and English. The user can change the language by clicking the language button on the bottom of every view.
+
+The app **scales** to any size screen.
+
+### Some libraries used in this project
 
 - Axios
 - Bootstrap
+- I18n
 - React Router
 - Redux
 - Redux Thunk
