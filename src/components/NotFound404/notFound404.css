@@ -1,29 +1,51 @@
+@import '../../colors.css';
+
 #NotFound404 {
   height: 100%;
-  padding-top: 8rem;
+  padding-top: 4rem;
   padding-bottom: 4rem;
+  text-align: left;
 }
 
-#NotFound404 h1 {
+#NotFound404 .header {
+  margin-bottom: 2.5rem;
+}
+
+#NotFound404 .errorHeader {
   margin-bottom: 1.5rem;
 }
 
-#NotFound404 p {
+#NotFound404 h1 {
+  color: var(--custommiddlecyan);
+}
+
+#NotFound404 .header p {
+  font-size: 1.5rem;
+}
+
+#NotFound404 .error {
   font-size: 1.25rem;
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 575.99px) {
   #NotFound404 {
     padding-top: 4rem;
     padding-bottom: 2rem;
   }
 
-  #NotFound404 h1 {
+  #NotFound404 .header {
     margin-bottom: 1.5rem;
+  }
+
+  #NotFound404 .header h1 {
     font-size: 1.75rem;
   }
 
-  #NotFound404 p {
+  #NotFound404 .header p {
+    font-size: 1rem;
+  }
+
+  #NotFound404 .error {
     font-size: 1rem;
   }
 }

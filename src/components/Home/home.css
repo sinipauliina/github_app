@@ -1,10 +1,12 @@
+@import '../../colors.css';
+
 #Home {
   height: 100%;
   padding-top: 8rem;
   padding-bottom: 4rem;
 }
 
-#Home .arrowRow {
+#Home .imageRow {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -24,10 +26,21 @@
   max-width: 78px;
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 991.99px) {
+  #Home {
+    text-align: left;
+  }
+
+  #Home .imageCol {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 575.99px) {
   #Home {
     padding-top: 4rem;
     padding-bottom: 2rem;
+    text-align: center;
   }
 
   #Home h1 {

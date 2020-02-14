@@ -1,98 +1,78 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
 import {withRouter} from 'react-router'
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
-import {Container, Row, Col, Table, Image} from 'react-bootstrap'
+import {Container} from 'react-bootstrap'
 import 'font-awesome/css/font-awesome.min.css'
 
-import {CONTENT} from '../../constants'
+import {setUserName, setRepoName} from '../../redux/modules/names'
+import {getCommits} from '../../redux/modules/commits'
 import CustomSpinner from '../CustomSpinner/CustomSpinner'
-import CommitTable from '../CommitTable/CommitTable'
+import SingleRepoOk from './SingleRepoOk'
+import SingleRepoNotFound from './SingleRepoNotFound'
+import SingleRepoFetchingError from './SingleRepoFetchingError'
 import './singleRepo.css'
 
 class SingleRepo extends Component {
-  state = {
-    fetching: false,
-    statusCode: 0,
-    commits: [],
-    userName: '',
-    repoName: '',
-  }
-
   componentDidMount = () => {
-    const {user, repo} = this.props.match.params
-    const newUserName = user ? user : ''
-    const newRepoName = repo ? repo : ''
+    const {setUserName, setRepoName, getCommits, match} = this.props
+    const {user, repo} = match.params
 
-    this.setState(
-      {
-        userName: newUserName,
-        repoName: newRepoName,
-        fetching: true,
-      },
-      this.fetchRepoCommits(newUserName, newRepoName),
-    )
-  }
-
-  fetchRepoCommits = (userName, repoName) => {
-    fetch(`https://api.github.com/repos/${userName}/${repoName}/commits`)
-      .then(response => {
-        if (response.status === 200) {
-          response.json().then(data =>
-            this.setState({
-              statusCode: 200,
-              commits: data,
-              fetching: false,
-            }),
-          )
-        } else {
-          this.setState({
-            statusCode: response.status,
-            fetching: false,
-          })
-        }
-      })
-      .catch(error => {
-        this.setState({
-          statusCode: 'error',
-          fetching: false,
-        })
-      })
+    setUserName(user)
+    setRepoName(repo)
+    getCommits(user, repo)
   }
 
   render() {
-    const {commits, fetching, statusCode, userName, repoName} = this.state
-    const notFound = statusCode === 404 && !fetching
+    const {userName, repoName, commits, status, loading} = this.props
+    const ok = status === 200 && !loading
+    const notFound = (status === 204 || status === 404) && !loading
     const fetchingError =
-      statusCode !== 200 && statusCode !== 404 && statusCode !== 0 && !fetching
+      status !== 200 &&
+      status !== 204 &&
+      status !== 404 &&
+      status !== 0 &&
+      !loading
 
     return (
       <Container id="SingleRepo">
-        {fetching && (
-          <Container id="SingleRepo">
-            <CustomSpinner />
-          </Container>
+        {loading && <CustomSpinner />}
+
+        {ok && (
+          <SingleRepoOk
+            userName={userName}
+            repoName={repoName}
+            commits={commits}
+          />
         )}
 
-        {statusCode === 200 && (
-          <>
-            <Row>
-              <Col>
-                <h1>
-                  <Link to={`/${userName}`}>{userName}</Link> &rarr; {repoName}
-                </h1>
-              </Col>
-            </Row>
+        {notFound && <SingleRepoNotFound userName={userName} />}
 
-            <Row>
-              <Col>
-                <CommitTable commits={commits} />
-              </Col>
-            </Row>
-          </>
-        )}
+        {fetchingError && <SingleRepoFetchingError userName={userName} />}
       </Container>
     )
   }
 }
 
-export default withRouter(SingleRepo)
+const mapStateToProps = state => {
+  const {userName, repoName} = state.names
+  const {data, status, loading} = state.commits
+
+  return {
+    userName: userName,
+    repoName: repoName,
+    commits: data,
+    status: status,
+    loading: loading,
+  }
+}
+
+const mapDispatchToProps = {
+  setUserName: userName => setUserName(userName),
+  setRepoName: repoName => setRepoName(repoName),
+  getCommits: (userName, repoName) => getCommits(userName, repoName),
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(withRouter(SingleRepo))

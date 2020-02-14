@@ -1,58 +1,64 @@
-import React, {Component} from 'react'
-import {withRouter} from 'react-router'
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
-import {Row, Col, Table, Image, Container} from 'react-bootstrap'
+import React from 'react'
+import {Table, Image} from 'react-bootstrap'
 import 'font-awesome/css/font-awesome.min.css'
 
-import {URLS} from '../../constants'
+import {URLS, CONTENT} from '../../constants'
 import './commitTable.css'
 
-class CommitTable extends Component {
-  render() {
-    const {commits} = this.props
+const CommitTable = props => {
+  const {commits} = props
 
-    return (
-      <Table id="CommitTable" variant="dark">
-        <thead>
-          <tr>
-            <th colSpan="2" className="col-sm-3">
-              Author
-            </th>
-            <th className="col-sm-3">Date</th>
-            <th className="col-sm-6">Message</th>
-          </tr>
-        </thead>
+  return (
+    <Table id="CommitTable" variant="dark">
+      <thead>
+        <tr>
+          <th colSpan="2" className="col-sm-3">
+            {CONTENT.COMMIT_TABLE.AUTHOR}
+          </th>
 
-        <tbody>
-          {commits.slice(0, 10).map(commit => {
-            const date = new Date(commit.commit.author.date).toLocaleString()
+          <th className="col-sm-6">{CONTENT.COMMIT_TABLE.MESSAGE}</th>
 
-            return (
-              <tr key={commit.id}>
-                <td className="col-sm-1">
-                  {commit.author && commit.author.avatar_url ? (
-                    <Image className="avatar" src={commit.author.avatar_url} />
-                  ) : (
-                    <Image className="avatar" src={URLS.PLACEHOLDER_IMG} />
-                  )}
-                </td>
+          <th className="col-sm-3">{CONTENT.COMMIT_TABLE.DATE}</th>
+        </tr>
+      </thead>
 
-                <td className="col-sm-2">
-                  {commit.commit.author.name ? commit.commit.author.name : '-'}
-                </td>
+      <tbody>
+        {commits.slice(0, 10).map(commit => {
+          const date = new Date(commit.commit.author.date).toLocaleString()
 
-                <td className="col-sm-3">{date}</td>
+          return (
+            <tr key={commit.node_id}>
+              <td className="col-sm-1">
+                {commit.author && commit.author.avatar_url ? (
+                  <Image
+                    className="avatar"
+                    src={commit.author.avatar_url}
+                    rounded
+                  />
+                ) : (
+                  <Image
+                    className="avatar"
+                    src={URLS.PLACEHOLDER_IMG}
+                    rounded
+                  />
+                )}
+              </td>
 
-                <td className="col-sm-6">
-                  {commit.commit.message ? commit.commit.message : '-'}
-                </td>
-              </tr>
-            )
-          })}
-        </tbody>
-      </Table>
-    )
-  }
+              <td className="col-sm-2">
+                {commit.commit.author.name ? commit.commit.author.name : '-'}
+              </td>
+
+              <td className="col-sm-6">
+                {commit.commit.message ? commit.commit.message : '-'}
+              </td>
+
+              <td className="col-sm-3">{date}</td>
+            </tr>
+          )
+        })}
+      </tbody>
+    </Table>
+  )
 }
 
-export default withRouter(CommitTable)
+export default CommitTable

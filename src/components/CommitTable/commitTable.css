@@ -1,6 +1,16 @@
+@import '../../colors.css';
+
 #CommitTable {
   color: var(--customlightcyan);
   background-color: var(--customblack);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
 
 #CommitTable tbody tr:hover {
@@ -16,5 +26,10 @@
 
 #CommitTable .avatar {
   max-width: 80px;
-  border-radius: 0.25rem;
+}
+
+@media screen and (max-width: 991.99px) {
+  #CommitTable .avatar {
+    max-width: 50px;
+  }
 }

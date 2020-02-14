@@ -3,6 +3,14 @@
 #RepoTable {
   color: var(--customlightcyan);
   background-color: var(--customblack);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
 
 #RepoTable tbody tr:hover {
@@ -32,7 +40,7 @@
   text-decoration: underline;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 767.99px) {
   #RepoTable .hideSm {
     display: none;
   }

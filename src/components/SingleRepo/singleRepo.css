@@ -1,3 +1,5 @@
+@import '../../colors.css';
+
 #SingleRepo {
   height: 100%;
   padding-top: 4rem;
@@ -5,22 +7,68 @@
   text-align: left;
 }
 
-#SingleRepo h1 {
+#SingleRepo .header {
   margin-bottom: 2.5rem;
+}
+
+#SingleRepo .errorHeader {
+  margin-bottom: 1.5rem;
+}
+
+#SingleRepo h1 {
+  color: var(--customlightcyan);
+}
+
+#SingleRepo .header p {
+  font-size: 1.5rem;
 }
 
 #SingleRepo a {
   color: var(--customorange);
 }
 
+#SingleRepo p {
+  font-size: 1.25rem;
+}
+
 #SingleRepo .error {
   font-size: 1.25rem;
 }
 
-@media screen and (max-width: 580px) {
+#SingleRepo .showMd {
+  display: none;
+}
+
+@media screen and (max-width: 991.99px) {
+  #SingleRepo .hideMd {
+    display: none;
+  }
+
+  #SingleRepo .showMd {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 575.99px) {
   #SingleRepo {
-    padding-top: 4rem;
-    padding-bottom: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    text-align: center;
+  }
+
+  #SingleRepo .header,
+  #SingleRepo .errorHeader {
+    margin-bottom: 1.5rem;
+  }
+
+  #SingleRepo .header h1,
+  #SingleRepo .errorHeader h1 {
+    font-size: 1.75rem;
+  }
+
+  #SingleRepo .header p,
+  #SingleRepo p {
+    font-size: 1rem;
   }
 
   #SingleRepo .error {

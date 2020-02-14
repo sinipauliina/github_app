@@ -1,120 +1,68 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
 import {withRouter} from 'react-router'
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
-import {Container, Row, Col} from 'react-bootstrap'
+import {Container} from 'react-bootstrap'
 
-import {CONTENT} from '../../constants'
-import RepoTable from '../RepoTable/RepoTable'
+import {setUserName} from '../../redux/modules/names'
+import {getRepos} from '../../redux/modules/repos'
 import CustomSpinner from '../CustomSpinner/CustomSpinner'
+import UserOk from './UserOk'
+import UserNotFound from './UserNotFound'
+import UserFetchingError from './UserFetchingError'
 import './user.css'
 
 class User extends Component {
-  state = {
-    userName: '',
-    fetching: false,
-    statusCode: 0,
-    repos: [],
-  }
-
   componentDidMount = () => {
-    const {user} = this.props.match.params
-    const newUserName = user ? user : ''
+    const {setUserName, getRepos, match} = this.props
+    const {user} = match.params
 
-    this.setState(
-      {
-        userName: newUserName,
-        fetching: true,
-      },
-      this.fetchRepos(newUserName),
-    )
-  }
-
-  fetchRepos = userName => {
-    fetch(`https://api.github.com/users/${userName}/repos`)
-      .then(response => {
-        if (response.status === 200) {
-          response.json().then(data =>
-            this.setState({
-              statusCode: response.status,
-              repos: data,
-              fetching: false,
-            }),
-          )
-        } else {
-          this.setState({
-            statusCode: response.status,
-            fetching: false,
-          })
-        }
-      })
-      .catch(error => {
-        this.setState({
-          statusCode: 'error',
-          fetching: false,
-        })
-      })
+    setUserName(user)
+    getRepos(user)
   }
 
   render() {
-    const {userName, repoName, fetching, statusCode, repos} = this.state
-    const notFound = statusCode === 404 && !fetching
+    const {userName, repos, status, loading} = this.props
+    const ok = status === 200 && !loading
+    const notFound = (status === 204 || status === 404) && !loading
     const fetchingError =
-      statusCode !== 200 && statusCode !== 404 && statusCode !== 0 && !fetching
+      status !== 200 &&
+      status !== 204 &&
+      status !== 404 &&
+      status !== 0 &&
+      !loading
 
     return (
       <Container id="User">
-        {fetching && <CustomSpinner />}
+        {loading && <CustomSpinner />}
 
-        {statusCode === 200 && (
-          <>
-            <Row>
-              <Col>
-                <h1>{userName}</h1>
-              </Col>
-            </Row>
+        {ok && <UserOk userName={userName} repos={repos} />}
 
-            <Row>
-              <Col>
-                <RepoTable userName={userName} repos={repos} />
-              </Col>
-            </Row>
-          </>
-        )}
+        {notFound && <UserNotFound />}
 
-        {notFound && (
-          <>
-            <Row>
-              <Col xs={12} sm={10} md={8}>
-                <h1>{CONTENT.USER.ERROR_TITLE}</h1>
-              </Col>
-            </Row>
-
-            <Row>
-              <Col xs={12} sm={10} md={8}>
-                <p className="error">{CONTENT.USER.NOTHING_FOUND}</p>
-              </Col>
-            </Row>
-          </>
-        )}
-
-        {fetchingError && (
-          <>
-            <Row>
-              <Col xs={12} sm={10} md={8}>
-                <h1>{CONTENT.USER.ERROR_TITLE}</h1>
-              </Col>
-            </Row>
-
-            <Row>
-              <Col xs={12} sm={10} md={8}>
-                <p className="error">{CONTENT.USER.FETCHING_ERROR}</p>
-              </Col>
-            </Row>
-          </>
-        )}
+        {fetchingError && <UserFetchingError />}
       </Container>
     )
   }
 }
 
-export default withRouter(User)
+const mapStateToProps = state => {
+  const {userName} = state.names
+  const {data, status, loading} = state.repos
+
+  return {
+    userName: userName,
+    repos: data,
+    status: status,
+    loading: loading,
+  }
+}
+
+const mapDispatchToProps = {
+  setUserName: userName => setUserName(userName),
+  getRepos: userName => getRepos(userName),
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(withRouter(User))

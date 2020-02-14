@@ -1,21 +1,21 @@
 import React, {Component} from 'react'
 import {withRouter} from 'react-router'
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import {Table} from 'react-bootstrap'
 import 'font-awesome/css/font-awesome.min.css'
 
+import {CONTENT} from '../../constants'
 import './repoTable.css'
 
 class RepoTable extends Component {
   handleClickRow = e => {
     const {userName, history} = this.props
-    const repoName = e.target.parentElement.id
+    const targetRepoName = e.target.parentElement.id
 
-    history.push(`${userName}/${repoName}`)
+    history.push(`${userName}/${targetRepoName}`)
   }
 
   render() {
-    const {userName, repos} = this.props
+    const {repos} = this.props
     const {handleClickRow} = this
 
     return (
@@ -24,12 +24,16 @@ class RepoTable extends Component {
           <tr>
             <th className="col-md-3">
               <span className="fas fa-folder" />
-              Repository
+              {CONTENT.REPO_TABLE.REPOSITORY}
             </th>
 
-            <th className="hideSm col-md-6">Description</th>
+            <th className="hideSm col-md-6">
+              {CONTENT.REPO_TABLE.DESCRIPTION}
+            </th>
 
-            <th className="hideSm col-md-3">Last updated</th>
+            <th className="hideSm col-md-3">
+              {CONTENT.REPO_TABLE.LAST_UPDATED}
+            </th>
           </tr>
         </thead>
 

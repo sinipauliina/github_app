@@ -1,22 +1,20 @@
-import React, {Component} from 'react'
+import React from 'react'
 
 import routes from './routes'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import './App.css'
 
-class App extends Component {
-  render() {
-    return (
-      <div id="App">
-        <Header />
+const App = () => {
+  return (
+    <div id="App">
+      <Header />
 
-        {routes}
+      {routes}
 
-        <Footer />
-      </div>
-    )
-  }
+      <Footer />
+    </div>
+  )
 }
 
 export default App

@@ -1,28 +1,31 @@
-import React, {Component} from 'react'
+import React from 'react'
 import {Container, Row, Col} from 'react-bootstrap'
-import {URLS} from '../../constants'
+
+import {URLS, CONTENT} from '../../constants'
 import './footer.css'
 
-class Footer extends Component {
-  render() {
-    return (
-      <Container id="Footer">
-        <hr />
+const Footer = () => {
+  return (
+    <Container id="Footer" as="footer">
+      <hr />
 
-        <Row>
-          <Col>
-            <p>
-              GitHub App &copy;{' '}
-              <a href={URLS.AUTHOR_SITE} target="_blank">
-                Sini Pauliina Kolehmainen
-              </a>{' '}
-              2020
-            </p>
-          </Col>
-        </Row>
-      </Container>
-    )
-  }
+      <Row>
+        <Col>
+          <p>
+            {CONTENT.FOOTER.APP_TITLE} &copy;{' '}
+            <a
+              href={URLS.APP_AUTHOR_SITE}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {CONTENT.FOOTER.APP_AUTHOR}
+            </a>{' '}
+            {CONTENT.FOOTER.APP_YEAR}
+          </p>
+        </Col>
+      </Row>
+    </Container>
+  )
 }
 
 export default Footer

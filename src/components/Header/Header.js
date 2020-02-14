@@ -1,14 +1,16 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
 import {withRouter} from 'react-router'
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
-import {Navbar, Form, FormControl, Button} from 'react-bootstrap'
+import {Navbar, Form, Button} from 'react-bootstrap'
 
+import {setUserName} from '../../redux/modules/names'
+import {getRepos} from '../../redux/modules/repos'
 import {CONTENT} from '../../constants'
 import './header.css'
 
 class Header extends Component {
   state = {
-    userName: '',
+    searchInput: '',
   }
 
   handleChange = e => {
@@ -17,34 +19,48 @@ class Header extends Component {
     })
   }
 
-  // TODO: Korjaa enter-submit!
   handleSearch = () => {
-    const {history} = this.props
-    const {userName} = this.state
+    const {setUserName, getRepos, history} = this.props
+    const {searchInput} = this.state
 
-    history.push(`/${userName}`)
+    setUserName(searchInput)
+    getRepos(searchInput)
+
+    history.push(`/${searchInput}`)
 
     this.setState({
-      userName: '',
+      searchInput: '',
     })
   }
 
+  handleKeyDown = e => {
+    const {handleSearch} = this
+
+    if (e.key === 'Enter') {
+      e.preventDefault()
+
+      handleSearch()
+    }
+  }
+
   render() {
-    const {userName} = this.state
-    const {handleChange, handleSearch} = this
+    const {searchInput} = this.state
+    const {handleChange, handleSearch, handleKeyDown} = this
 
     return (
       <Navbar id="Navbar">
         <Navbar.Brand href="/">{CONTENT.HEADER.APP_TITLE}</Navbar.Brand>
 
         <Form inline>
-          <FormControl
-            name="userName"
-            value={userName}
+          <Form.Control
+            as="input"
+            name="searchInput"
+            value={searchInput}
             type="text"
             placeholder={CONTENT.HEADER.SEARCH_BOX_PLACEHOLDER}
             className="mr-sm-2"
             onChange={handleChange}
+            onKeyDown={handleKeyDown}
           />
 
           <Button variant="outline-light" onClick={handleSearch}>
@@ -56,4 +72,12 @@ class Header extends Component {
   }
 }
 
-export default withRouter(Header)
+const mapDispatchToProps = {
+  setUserName: userName => setUserName(userName),
+  getRepos: userName => getRepos(userName),
+}
+
+export default connect(
+  null,
+  mapDispatchToProps,
+)(withRouter(Header))

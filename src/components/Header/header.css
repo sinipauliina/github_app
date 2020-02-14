@@ -5,6 +5,15 @@
   justify-content: space-between;
 }
 
+#Navbar .form-control {
+  border-color: var(--customlightcyan);
+}
+
+#Navbar .form-control:focus {
+  border-color: var(--custommiddlecyan);
+  box-shadow: 0 0 0 1px rgba(50, 227, 206, 0.25);
+}
+
 #Navbar .navbar-brand {
   color: var(--customlightcyan);
 }
@@ -21,7 +30,7 @@
   background-color: var(--customlightcyan);
 }
 
-@media screen and (max-width: 575px) {
+@media screen and (max-width: 575.99px) {
   #Navbar {
     display: flex;
     flex-direction: column;
