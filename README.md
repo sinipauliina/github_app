@@ -1,4 +1,4 @@
-# My 2nd React project
+# GitHub App
 
 ## About this project
 
@@ -8,13 +8,33 @@ This is a single-page app developed with React. This project was bootstrapped wi
 
 ### Features
 
+## Some libraries used in this project
+
+- Axios
+- Bootstrap
+- React Router
+- Redux
+- Redux Thunk
+
 ### Structure
 
 index.js -> App.js
 
 - Header.js
 - Home.js
+- User.js
+  - UserOk.js
+    - RepoTable.js
+  - UserNotFound.js
+  - UserFetchingError.js
+- SingleRepo.js
+  - SingleRepoOk.js
+    - CommitTable.js
+    - CommitTableMobile.js
+  - SingleRepoNotFound.js
+  - SingleRepoFetchingError.js
 - Footer.js
+- NotFound404.js
 
 ### The developer
 

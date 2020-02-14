@@ -6,7 +6,7 @@ import {Container, Row, Col, Image} from 'react-bootstrap'
 import {setUserName} from '../../redux/modules/names'
 import {CONTENT} from '../../constants'
 import './home.css'
-import image from '../../assets/arrow4.png'
+import image from '../../assets/arrow.png'
 
 class Home extends Component {
   componentDidMount = () => {
