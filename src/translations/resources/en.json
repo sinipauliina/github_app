@@ -1,0 +1,37 @@
+{
+  "HEADER.APP_TITLE": "GitHub App",
+  "HEADER.SEARCH_BOX_PLACEHOLDER": "Type a username",
+  "HEADER.BUTTON_TEXT": "Search",
+
+  "FOOTER.APP_TITLE": "GitHub App",
+  "FOOTER.APP_AUTHOR": "Sini Pauliina Kolehmainen",
+  "FOOTER.APP_YEAR": "2020",
+  "FOOTER.LANGUAGE": "Suomeksi",
+
+  "NOT_FOUND.TITLE": "Oh noes! :(",
+  "NOT_FOUND.MESSAGE": "It seems to be a bit empty here. Maybe another search?",
+
+  "HOME.TITLE": "Hello World!",
+  "HOME.MESSAGE": "Wanna check the commit history of your favourite GitHub user's repos? Just type the username into the field above and hit the Search button!",
+
+  "USER.REPOSITORIES": "Repositories",
+  "USER.ERROR_TITLE": "Oh noes! :(",
+  "USER.FETCHING_ERROR": "Something went wrong during the fetching.",
+  "USER.NOTHING_FOUND": "I didn't find any repos belonging to the user you were looking for. Either the user doesn't exist or they don't have any public repos. Maybe another search?",
+
+  "REPO_TABLE.REPOSITORY": "Repository",
+  "REPO_TABLE.DESCRIPTION": "Description",
+  "REPO_TABLE.LAST_UPDATED": "Last updated",
+
+  "SINGLE_REPO.LATEST_COMMITS": "Latest commits",
+  "SINGLE_REPO.ERROR_TITLE": "Oh noes! :(",
+  "SINGLE_REPO.FETCHING_ERROR": "Something went wrong during the fetching.",
+  "SINGLE_REPO.NOTHING_FOUND": "I didn't find any commits. Maybe check another repo?",
+  "SINGLE_REPO.GO_BACK": "Go back!",
+
+  "COMMIT_TABLE.AUTHOR": "Author",
+  "COMMIT_TABLE.DATE": "Date",
+  "COMMIT_TABLE.MESSAGE": "Message",
+
+  "CUSTOM_SPINNER.LOADING": "Loading..."
+}
