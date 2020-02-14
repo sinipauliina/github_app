@@ -15,14 +15,44 @@
   background-color: var(--customlightcyan);
 }
 
-#Footer p {
-  margin-top: 0.5rem;
+#Footer .row {
+  flex-direction: column;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 0 15px;
 }
 
-#Footer a {
+#Footer .col {
+  text-align: center;
+}
+
+#Footer p {
+  margin-bottom: 0;
+}
+
+#Footer a,
+#Footer .btn-link,
+#Footer .btn {
   color: var(--customorange);
 }
 
-#Footer a:hover,
-#Footer a:active {
+#Footer .btn {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media screen and (max-width: 991.99px) {
+  #Footer .col {
+    text-align: left;
+  }
+}
+
+@media screen and (max-width: 575.99px) {
+  #Footer .row {
+    margin-top: 0.5rem;
+  }
+
+  #Footer .col {
+    text-align: center;
+  }
 }

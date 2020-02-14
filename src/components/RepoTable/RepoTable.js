@@ -2,8 +2,8 @@ import React, {Component} from 'react'
 import {withRouter} from 'react-router'
 import {Table} from 'react-bootstrap'
 import 'font-awesome/css/font-awesome.min.css'
+import {withNamespaces} from 'react-i18next'
 
-import {CONTENT} from '../../constants'
 import './repoTable.css'
 
 class RepoTable extends Component {
@@ -15,7 +15,7 @@ class RepoTable extends Component {
   }
 
   render() {
-    const {repos} = this.props
+    const {repos, t} = this.props
     const {handleClickRow} = this
 
     return (
@@ -24,16 +24,12 @@ class RepoTable extends Component {
           <tr>
             <th className="col-md-3">
               <span className="fas fa-folder" />
-              {CONTENT.REPO_TABLE.REPOSITORY}
+              {t('REPO_TABLE.REPOSITORY')}
             </th>
 
-            <th className="hideSm col-md-6">
-              {CONTENT.REPO_TABLE.DESCRIPTION}
-            </th>
+            <th className="hideSm col-md-6">{t('REPO_TABLE.DESCRIPTION')}</th>
 
-            <th className="hideSm col-md-3">
-              {CONTENT.REPO_TABLE.LAST_UPDATED}
-            </th>
+            <th className="hideSm col-md-3">{t('REPO_TABLE.LAST_UPDATED')}</th>
           </tr>
         </thead>
 
@@ -61,4 +57,4 @@ class RepoTable extends Component {
   }
 }
 
-export default withRouter(RepoTable)
+export default withNamespaces()(withRouter(RepoTable))

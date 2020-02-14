@@ -7,7 +7,7 @@ export const CONTENT = {
   HEADER: {
     APP_TITLE: 'GitHub App',
     SEARCH_BOX_PLACEHOLDER: 'Type a username',
-    BUTTON_TEXT: 'Search',
+    /*BUTTON_TEXT: 'Search',*/
   },
   FOOTER: {
     APP_TITLE: 'GitHub App',

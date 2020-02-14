@@ -1,24 +1,25 @@
 import React from 'react'
 import {Table, Image} from 'react-bootstrap'
 import 'font-awesome/css/font-awesome.min.css'
+import {withNamespaces} from 'react-i18next'
 
-import {URLS, CONTENT} from '../../constants'
+import {URLS} from '../../constants'
 import './commitTable.css'
 
 const CommitTable = props => {
-  const {commits} = props
+  const {commits, t} = props
 
   return (
     <Table id="CommitTable" variant="dark">
       <thead>
         <tr>
           <th colSpan="2" className="col-sm-3">
-            {CONTENT.COMMIT_TABLE.AUTHOR}
+            {t('COMMIT_TABLE.AUTHOR')}
           </th>
 
-          <th className="col-sm-6">{CONTENT.COMMIT_TABLE.MESSAGE}</th>
+          <th className="col-sm-6">{t('COMMIT_TABLE.MESSAGE')}</th>
 
-          <th className="col-sm-3">{CONTENT.COMMIT_TABLE.DATE}</th>
+          <th className="col-sm-3">{t('COMMIT_TABLE.DATE')}</th>
         </tr>
       </thead>
 
@@ -61,4 +62,4 @@ const CommitTable = props => {
   )
 }
 
-export default CommitTable
+export default withNamespaces()(CommitTable)

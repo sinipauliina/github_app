@@ -2,10 +2,10 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router'
 import {Navbar, Form, Button} from 'react-bootstrap'
+import {withNamespaces} from 'react-i18next'
 
 import {setUserName} from '../../redux/modules/names'
 import {getRepos} from '../../redux/modules/repos'
-import {CONTENT} from '../../constants'
 import './header.css'
 
 class Header extends Component {
@@ -44,12 +44,13 @@ class Header extends Component {
   }
 
   render() {
+    const {t} = this.props
     const {searchInput} = this.state
     const {handleChange, handleSearch, handleKeyDown} = this
 
     return (
       <Navbar id="Navbar">
-        <Navbar.Brand href="/">{CONTENT.HEADER.APP_TITLE}</Navbar.Brand>
+        <Navbar.Brand href="/">{t('HEADER.APP_TITLE')}</Navbar.Brand>
 
         <Form inline>
           <Form.Control
@@ -57,14 +58,14 @@ class Header extends Component {
             name="searchInput"
             value={searchInput}
             type="text"
-            placeholder={CONTENT.HEADER.SEARCH_BOX_PLACEHOLDER}
+            placeholder={t('HEADER.SEARCH_BOX_PLACEHOLDER')}
             className="mr-sm-2"
             onChange={handleChange}
             onKeyDown={handleKeyDown}
           />
 
           <Button variant="outline-light" onClick={handleSearch}>
-            {CONTENT.HEADER.BUTTON_TEXT}
+            {t('HEADER.BUTTON_TEXT')}
           </Button>
         </Form>
       </Navbar>
@@ -80,4 +81,4 @@ const mapDispatchToProps = {
 export default connect(
   null,
   mapDispatchToProps,
-)(withRouter(Header))
+)(withNamespaces()(withRouter(Header)))
