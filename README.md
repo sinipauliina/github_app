@@ -1,5 +1,7 @@
 # GitHub App
 
+![github_app_140220](https://user-images.githubusercontent.com/19979333/74544510-ec148580-4f4f-11ea-829c-08a666b229df.png)
+
 ## About this project
 
 This is a single-page app developed with React. With this app you can check the commit histories of your favourite GitHub user's repos. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
