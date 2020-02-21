@@ -1,0 +1,38 @@
+{
+  "HEADER.APP_TITLE": "GitHub App",
+  "HEADER.SEARCH_BOX_PLACEHOLDER": "Kirjoita käyttäjänimi",
+  "HEADER.BUTTON_TEXT": "Etsi",
+
+  "FOOTER.APP_TITLE": "GitHub App",
+  "FOOTER.APP_AUTHOR": "Sini Pauliina Kolehmainen",
+  "FOOTER.APP_YEAR": "2020",
+  "FOOTER.LANGUAGE": "In English",
+
+  "NOT_FOUND.TITLE": "Voi pahus! :(",
+  "NOT_FOUND.MESSAGE": "Täällä näyttää aika tyhjältä. Ehkäpä uusi haku?",
+
+  "HOME.TITLE": "Moro, Maailma!",
+  "HOME.MESSAGE1": "Haluatko tutkailla lempi-GitHub-käyttäjäsi repojen kommitointihistoriaa? Täällä se onnistuu!",
+  "HOME.MESSAGE2": "Aloita kirjoittamalla käyttäjänimi tuohon ylhäällä näkyvään hakuboksiin ja klikkaa sitten Etsi-nappia!",
+
+  "USER.REPOSITORIES": "Repot",
+  "USER.ERROR_TITLE": "Voi pahus! :(",
+  "USER.FETCHING_ERROR": "Jotain meni pieleen tietojen hakemisen aikana.",
+  "USER.NOTHING_FOUND": "En löytänyt yhtään repoa, joka kuuluisi etsimällesi käyttäjälle. Joko käyttäjää ei ole olemassa tai hänellä ei ole yhtään julkista repoa. Ehkäpä uusi haku?",
+
+  "REPO_TABLE.REPOSITORY": "Repo",
+  "REPO_TABLE.DESCRIPTION": "Kuvaus",
+  "REPO_TABLE.LAST_UPDATED": "Päivitetty viimeksi",
+
+  "SINGLE_REPO.LATEST_COMMITS": "Uusimmat kommitit",
+  "SINGLE_REPO.ERROR_TITLE": "Voi pahus! :(",
+  "SINGLE_REPO.FETCHING_ERROR": "Jotain meni pieleen tietojen hakemisen aikana.",
+  "SINGLE_REPO.NOTHING_FOUND": "En löytänyt yhtään kommittia. Ehkäpä haluat vilkaista jotain muuta repoa?",
+  "SINGLE_REPO.GO_BACK": "Takaisin!",
+
+  "COMMIT_TABLE.AUTHOR": "Tekijä",
+  "COMMIT_TABLE.DATE": "Päivämäärä",
+  "COMMIT_TABLE.MESSAGE": "Viesti",
+
+  "CUSTOM_SPINNER.LOADING": "Lataus käynnissä..."
+}

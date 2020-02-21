@@ -4,7 +4,7 @@ import {routerMiddleware} from 'connected-react-router'
 import thunkMiddleware from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 
-import rootReducer from './modules/rootReducer'
+import rootReducer from './rootReducer'
 
 export const history = createBrowserHistory()
 
@@ -22,9 +22,7 @@ const configureStore = preloadedState => {
   )
 
   if (process.env.NODE_ENV !== 'production' && module.hot) {
-    module.hot.accept('./modules/rootReducer', () =>
-      store.replaceReducer(rootReducer),
-    )
+    module.hot.accept('./rootReducer', () => store.replaceReducer(rootReducer))
   }
 
   return store
