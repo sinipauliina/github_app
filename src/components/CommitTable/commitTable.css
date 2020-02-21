@@ -24,6 +24,22 @@
   border-color: var(--customgrey);
 }
 
+#CommitTable .col-sm-1 {
+  width: 8%;
+}
+
+#CommitTable .col-sm-2 {
+  width: 17%;
+}
+
+#CommitTable .col-sm-3 {
+  width: 25%;
+}
+
+#CommitTable .col-sm-6 {
+  width: 50%;
+}
+
 #CommitTable .avatar {
   max-width: 80px;
 }

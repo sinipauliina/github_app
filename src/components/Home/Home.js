@@ -22,7 +22,8 @@ class Home extends Component {
           <Col xs={12} sm={10} md={8}>
             <h1>{t('HOME.TITLE')}</h1>
 
-            <p>{t('HOME.MESSAGE')}</p>
+            <p>{t('HOME.MESSAGE1')}</p>
+            <p>{t('HOME.MESSAGE2')}</p>
           </Col>
 
           <Col xs={0} sm={2} md={4} className="imageCol">

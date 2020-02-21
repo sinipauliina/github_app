@@ -12,7 +12,8 @@
   "NOT_FOUND.MESSAGE": "Täällä näyttää aika tyhjältä. Ehkäpä uusi haku?",
 
   "HOME.TITLE": "Moro, Maailma!",
-  "HOME.MESSAGE": "Haluatko tutkailla lempi-GitHub-käyttäjäsi repojen kommitointihistoriaa? Kirjoita käyttäjänimi tuohon ylhäällä näkyvään hakuboksiin ja klikkaa Etsi-nappia!",
+  "HOME.MESSAGE1": "Haluatko tutkailla lempi-GitHub-käyttäjäsi repojen kommitointihistoriaa? Täällä se onnistuu!",
+  "HOME.MESSAGE2": "Aloita kirjoittamalla käyttäjänimi tuohon ylhäällä näkyvään hakuboksiin ja klikkaa sitten Etsi-nappia!",
 
   "USER.REPOSITORIES": "Repot",
   "USER.ERROR_TITLE": "Voi pahus! :(",

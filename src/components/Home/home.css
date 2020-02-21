@@ -4,7 +4,7 @@
   height: 100%;
   padding-top: 8rem;
   padding-bottom: 4rem;
-  text-align: center;
+  text-align: left;
 }
 
 #Home .imageRow {
@@ -12,6 +12,10 @@
   flex-direction: row;
   align-items: center;
   margin: 0;
+}
+
+#Home .imageCol {
+  text-align: center;
 }
 
 #Home h1 {
@@ -25,16 +29,6 @@
 
 #Home img {
   max-width: 78px;
-}
-
-@media screen and (max-width: 991.99px) {
-  #Home {
-    text-align: left;
-  }
-
-  #Home .imageCol {
-    text-align: center;
-  }
 }
 
 @media screen and (max-width: 575.99px) {

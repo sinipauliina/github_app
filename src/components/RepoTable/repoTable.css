@@ -25,6 +25,14 @@
   border-color: var(--customgrey);
 }
 
+#RepoTable .col-md-3 {
+  width: 25%;
+}
+
+#RepoTable .col-md-6 {
+  width: 50%;
+}
+
 #RepoTable .fas {
   font-weight: 400;
   padding: 0 10px 0 0;

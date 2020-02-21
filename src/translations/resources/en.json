@@ -12,7 +12,8 @@
   "NOT_FOUND.MESSAGE": "It seems to be a bit empty here. Maybe another search?",
 
   "HOME.TITLE": "Hello World!",
-  "HOME.MESSAGE": "Wanna check the commit history of your favourite GitHub user's repos? Just type the username into the field above and hit the Search button!",
+  "HOME.MESSAGE1": "Wanna check the commit history of your favourite GitHub user's repos?",
+  "HOME.MESSAGE2": "Just type the username into the field above and hit the Search button!",
 
   "USER.REPOSITORIES": "Repositories",
   "USER.ERROR_TITLE": "Oh noes! :(",
