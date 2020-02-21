@@ -23,7 +23,7 @@
 }
 
 #Footer .col {
-  text-align: center;
+  text-align: left;
 }
 
 #Footer p {
@@ -39,12 +39,6 @@
 #Footer .btn {
   padding-left: 0;
   padding-right: 0;
-}
-
-@media screen and (max-width: 991.99px) {
-  #Footer .col {
-    text-align: left;
-  }
 }
 
 @media screen and (max-width: 575.99px) {
