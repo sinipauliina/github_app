@@ -6,10 +6,6 @@
 
 This is a single-page app developed with React. With this app you can check the commit histories of your favourite GitHub user's repos. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-### Live demo
-
-Coming soon!
-
 ### Features
 
 The app contains **three main views**.
@@ -55,7 +51,6 @@ index.js -> App.js
 
 Sini Pauliina Kolehmainen  
 kolehmainen.sini@outlook.com  
-https://www.sinipauliina.com (only in Finnish)
 
 I developed this app because I wanted to become a better React developer and to prove I have some skills already.
 
